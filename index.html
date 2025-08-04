@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Terminal Vanya</title>
+  <style>
+    body {
+      background-color: black;
+      color: #00FF00;
+      font-family: monospace;
+      padding: 20px;
+    }
+    .scan {
+      animation: blink 1s infinite;
+    }
+    @keyframes blink {
+      0% {opacity: 1;}
+      50% {opacity: 0.3;}
+      100% {opacity: 1;}
+    }
+    button {
+      background: none;
+      border: 1px solid #00FF00;
+      color: #00FF00;
+      font-family: monospace;
+      padding: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    button:hover {
+      background: #00FF00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>[ACCESS GRANTED]</h1>
+  <p>Welcome, agent <b>VANYA</b>.</p>
+  <p class="scan">Hacking system<span id="dots">.</span></p>
+
+  <button onclick="launchAttack()">▶ Launch virus</button>
+  <button onclick="fakeShutdown()">💣 Destroy system</button>
+
+  <audio id="beep" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+
+  <script>
+    // Blinking dots
+    let dots = document.getElementById("dots");
+    setInterval(() => {
+      dots.textContent = dots.textContent.length < 3 ? dots.textContent + "." : ".";
+    }, 500);
+
+    // Launch attack
+    function launchAttack() {
+      document.getElementById("beep").play();
+      alert("💥 SYSTEM INFECTED! VANYA.exe has been launched.");
+    }
+
+    // Fake shutdown
+    function fakeShutdown() {
+      document.body.innerHTML = "<h1 style='color:red; text-align:center; margin-top:20%'>💀 SYSTEM DESTROYED 💀</h1>";
+    }
+  </script>
+
+</body>
+</html>
